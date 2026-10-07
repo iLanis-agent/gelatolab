@@ -1,0 +1,2 @@
+# GelatoLab
+Gelato/ice-cream mix balancer: fat, solids, sweetness (POD), anti-freeze (PAC), freezing depression and frozen-water percentage at serving temperature from physical constants, plus an exact linear solver for the sucrose/dextrose swap that hits target sweetness and scoopability. Engine: engine.js. Tests: `node tests/run_tests.js` against an independent Python physics oracle (tests/oracle.py).
