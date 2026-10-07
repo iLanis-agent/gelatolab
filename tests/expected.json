@@ -1,0 +1,805 @@
+[
+ {
+  "id": "hand-classic-gelato",
+  "raw": {
+   "milk": 600,
+   "cream": 250,
+   "sucrose": 120,
+   "dextrose": 40,
+   "yolk": 60,
+   "serveTemp": -10,
+   "overrunPct": 0
+  },
+  "expected": {
+   "analyze": {
+    "W": 1070.0,
+    "fatPct": 11.934579,
+    "msnfPct": 6.140187,
+    "addedSugarPct": 14.953271,
+    "solidsPct": 33.700935,
+    "pod100": 14.3672,
+    "pac100": 20.43742,
+    "dT": 1.675038,
+    "frozenPct": 83.249618,
+    "scoops80": 12.270642
+   },
+   "fix": {
+    "P": 18,
+    "F": 68,
+    "x": -61.322333,
+    "y": 171.452449
+   }
+  }
+ },
+ {
+  "id": "hand-sorbet-no-dairy",
+  "raw": {
+   "water": 700,
+   "sucrose": 200,
+   "dextrose": 50,
+   "glucose": 40,
+   "stabilizer": 3,
+   "serveTemp": -12,
+   "overrunPct": 25
+  },
+  "expected": {
+   "analyze": {
+    "W": 993.0,
+    "fatPct": 0.0,
+    "msnfPct": 0.0,
+    "addedSugarPct": 29.204431,
+    "solidsPct": 28.247734,
+    "pod100": 25.276939,
+    "pac100": 30.26179,
+    "dT": 2.291738,
+    "frozenPct": 80.90218,
+    "scoops80": 14.234518
+   },
+   "fix": {
+    "P": 20,
+    "F": 73,
+    "x": -198.338659,
+    "y": 212.541854
+   }
+  }
+ },
+ {
+  "id": "hand-honey-heavy",
+  "raw": {
+   "milk": 500,
+   "cream": 200,
+   "smp": 30,
+   "honey": 90,
+   "sucrose": 60,
+   "yolk": 40,
+   "serveTemp": -12,
+   "overrunPct": 35
+  },
+  "expected": {
+   "analyze": {
+    "W": 920.0,
+    "fatPct": 10.928261,
+    "msnfPct": 9.065217,
+    "addedSugarPct": 16.304348,
+    "solidsPct": 35.391304,
+    "pod100": 18.073096,
+    "pac100": 26.703409,
+    "dT": 2.245855,
+    "frozenPct": 81.284539,
+    "scoops80": 14.243119
+   },
+   "fix": {
+    "P": 22,
+    "F": 76,
+    "x": 30.707943,
+    "y": 25.36526
+   }
+  }
+ },
+ {
+  "id": "hand-pure-sucrose",
+  "raw": {
+   "milk": 1000,
+   "sucrose": 180,
+   "serveTemp": -14,
+   "overrunPct": 50
+  },
+  "expected": {
+   "analyze": {
+    "W": 1180.0,
+    "fatPct": 2.966102,
+    "msnfPct": 7.372881,
+    "addedSugarPct": 15.254237,
+    "solidsPct": 25.59322,
+    "pod100": 15.897153,
+    "pac100": 19.272458,
+    "dT": 1.407442,
+    "frozenPct": 89.94684,
+    "scoops80": 20.298165
+   },
+   "fix": {
+    "P": 18,
+    "F": 68,
+    "x": -312.115936,
+    "y": 539.901284
+   }
+  }
+ },
+ {
+  "id": "hand-cryoscopic-ref",
+  "raw": {
+   "milk": 500,
+   "sucrose": 100,
+   "serveTemp": -10,
+   "overrunPct": 0
+  },
+  "expected": {
+   "analyze": {
+    "W": 600.0,
+    "fatPct": 2.916667,
+    "msnfPct": 7.25,
+    "addedSugarPct": 16.666667,
+    "solidsPct": 26.833333,
+    "pod100": 17.298867,
+    "pac100": 20.617917,
+    "dT": 1.53122,
+    "frozenPct": 84.687801,
+    "scoops80": 6.880734
+   },
+   "fix": {
+    "P": 20,
+    "F": 73,
+    "x": -31.125194,
+    "y": 82.213911
+   }
+  }
+ },
+ {
+  "id": "rand-00",
+  "raw": {
+   "milk": 300,
+   "cream": 200,
+   "smp": 0,
+   "yolk": 40,
+   "sucrose": 195,
+   "dextrose": 80,
+   "glucose": 0,
+   "honey": 0,
+   "stabilizer": 0,
+   "serveTemp": -12,
+   "overrunPct": 25
+  },
+  "expected": {
+   "analyze": {
+    "W": 815.0,
+    "fatPct": 11.447853,
+    "msnfPct": 4.527607,
+    "addedSugarPct": 33.742331,
+    "solidsPct": 49.717791,
+    "pod100": 31.192353,
+    "pac100": 41.823103,
+    "dT": 4.519683,
+    "frozenPct": 62.335977,
+    "scoops80": 11.682913
+   },
+   "fix": {
+    "P": 22,
+    "F": 76,
+    "x": -77.351218,
+    "y": -30.382772
+   }
+  }
+ },
+ {
+  "id": "rand-01",
+  "raw": {
+   "milk": 750,
+   "cream": 350,
+   "smp": 0,
+   "yolk": 0,
+   "sucrose": 161,
+   "dextrose": 0,
+   "glucose": 0,
+   "honey": 0,
+   "stabilizer": 0,
+   "serveTemp": -12,
+   "overrunPct": 35
+  },
+  "expected": {
+   "analyze": {
+    "W": 1261.0,
+    "fatPct": 11.796193,
+    "msnfPct": 6.673275,
+    "addedSugarPct": 12.767645,
+    "solidsPct": 31.237113,
+    "pod100": 13.349554,
+    "pac100": 16.40458,
+    "dT": 1.296334,
+    "frozenPct": 89.197213,
+    "scoops80": 19.522362
+   },
+   "fix": {
+    "P": 18,
+    "F": 68,
+    "x": -171.07956,
+    "y": 382.552614
+   }
+  }
+ },
+ {
+  "id": "rand-02",
+  "raw": {
+   "milk": 300,
+   "cream": 0,
+   "smp": 20,
+   "yolk": 0,
+   "sucrose": 132,
+   "dextrose": 80,
+   "glucose": 50,
+   "honey": 0,
+   "stabilizer": 0,
+   "serveTemp": -14,
+   "overrunPct": 50
+  },
+  "expected": {
+   "analyze": {
+    "W": 582.0,
+    "fatPct": 1.831615,
+    "msnfPct": 7.817869,
+    "addedSugarPct": 45.017182,
+    "solidsPct": 51.683849,
+    "pod100": 36.42055,
+    "pac100": 53.252456,
+    "dT": 5.988987,
+    "frozenPct": 57.221523,
+    "scoops80": 10.011468
+   },
+   "fix": {
+    "P": 20,
+    "F": 73,
+    "x": -123.095901,
+    "y": 5.818242
+   }
+  }
+ },
+ {
+  "id": "rand-03",
+  "raw": {
+   "milk": 750,
+   "cream": 200,
+   "smp": 20,
+   "yolk": 90,
+   "sucrose": 52,
+   "dextrose": 20,
+   "glucose": 0,
+   "honey": 0,
+   "stabilizer": 0,
+   "serveTemp": -10,
+   "overrunPct": 0
+  },
+  "expected": {
+   "analyze": {
+    "W": 1132.0,
+    "fatPct": 11.060954,
+    "msnfPct": 8.431979,
+    "addedSugarPct": 6.360424,
+    "solidsPct": 27.111307,
+    "pod100": 6.565657,
+    "pac100": 11.966184,
+    "dT": 0.892075,
+    "frozenPct": 91.079246,
+    "scoops80": 12.981651
+   },
+   "fix": {
+    "P": 22,
+    "F": 76,
+    "x": 220.656154,
+    "y": 5.426999
+   }
+  }
+ },
+ {
+  "id": "rand-04",
+  "raw": {
+   "milk": 500,
+   "cream": 0,
+   "smp": 0,
+   "yolk": 90,
+   "sucrose": 46,
+   "dextrose": 60,
+   "glucose": 0,
+   "honey": 0,
+   "stabilizer": 0,
+   "serveTemp": -12,
+   "overrunPct": 25
+  },
+  "expected": {
+   "analyze": {
+    "W": 696.0,
+    "fatPct": 6.652299,
+    "msnfPct": 6.25,
+    "addedSugarPct": 15.229885,
+    "solidsPct": 29.683908,
+    "pod100": 13.188678,
+    "pac100": 23.565854,
+    "dT": 1.821103,
+    "frozenPct": 84.824142,
+    "scoops80": 9.977064
+   },
+   "fix": {
+    "P": 18,
+    "F": 68,
+    "x": -61.452369,
+    "y": 161.303352
+   }
+  }
+ },
+ {
+  "id": "rand-05",
+  "raw": {
+   "milk": 450,
+   "cream": 0,
+   "smp": 0,
+   "yolk": 60,
+   "sucrose": 89,
+   "dextrose": 80,
+   "glucose": 50,
+   "honey": 90,
+   "stabilizer": 4,
+   "serveTemp": -12,
+   "overrunPct": 35
+  },
+  "expected": {
+   "analyze": {
+    "W": 823.0,
+    "fatPct": 4.246659,
+    "msnfPct": 4.756987,
+    "addedSugarPct": 37.545565,
+    "solidsPct": 44.398542,
+    "pod100": 32.492574,
+    "pac100": 49.050657,
+    "dT": 4.793632,
+    "frozenPct": 60.053067,
+    "scoops80": 12.741399
+   },
+   "fix": {
+    "P": 20,
+    "F": 73,
+    "x": -126.894705,
+    "y": -2.596231
+   }
+  }
+ },
+ {
+  "id": "rand-06",
+  "raw": {
+   "milk": 300,
+   "cream": 100,
+   "smp": 60,
+   "yolk": 90,
+   "sucrose": 139,
+   "dextrose": 20,
+   "glucose": 0,
+   "honey": 90,
+   "stabilizer": 2,
+   "serveTemp": -14,
+   "overrunPct": 50
+  },
+  "expected": {
+   "analyze": {
+    "W": 801.0,
+    "fatPct": 9.33583,
+    "msnfPct": 11.198502,
+    "addedSugarPct": 31.086142,
+    "solidsPct": 51.697878,
+    "pod100": 32.437184,
+    "pac100": 44.886618,
+    "dT": 5.049597,
+    "frozenPct": 63.93145,
+    "scoops80": 13.77867
+   },
+   "fix": {
+    "P": 22,
+    "F": 76,
+    "x": -98.218323,
+    "y": -14.565726
+   }
+  }
+ },
+ {
+  "id": "rand-07",
+  "raw": {
+   "milk": 0,
+   "cream": 250,
+   "smp": 20,
+   "yolk": 40,
+   "sucrose": 152,
+   "dextrose": 80,
+   "glucose": 0,
+   "honey": 50,
+   "stabilizer": 2,
+   "serveTemp": -10,
+   "overrunPct": 0
+  },
+  "expected": {
+   "analyze": {
+    "W": 594.0,
+    "fatPct": 16.912458,
+    "msnfPct": 5.538721,
+    "addedSugarPct": 47.474747,
+    "solidsPct": 68.804714,
+    "pod100": 44.759071,
+    "pac100": 62.891815,
+    "dT": 10.95497,
+    "frozenPct": 0.0,
+    "scoops80": 6.811927
+   },
+   "fix": {
+    "P": 18,
+    "F": 68,
+    "x": -143.224844,
+    "y": -79.816361
+   }
+  }
+ },
+ {
+  "id": "rand-08",
+  "raw": {
+   "milk": 450,
+   "cream": 100,
+   "smp": 40,
+   "yolk": 60,
+   "sucrose": 90,
+   "dextrose": 40,
+   "glucose": 50,
+   "honey": 50,
+   "stabilizer": 0,
+   "serveTemp": -12,
+   "overrunPct": 25
+  },
+  "expected": {
+   "analyze": {
+    "W": 880.0,
+    "fatPct": 7.985227,
+    "msnfPct": 9.471591,
+    "addedSugarPct": 26.136364,
+    "solidsPct": 42.272727,
+    "pod100": 22.757741,
+    "pac100": 34.498038,
+    "dT": 3.247277,
+    "frozenPct": 72.939354,
+    "scoops80": 12.614679
+   },
+   "fix": {
+    "P": 20,
+    "F": 73,
+    "x": -51.085915,
+    "y": 33.201224
+   }
+  }
+ },
+ {
+  "id": "rand-09",
+  "raw": {
+   "milk": 750,
+   "cream": 250,
+   "smp": 0,
+   "yolk": 0,
+   "sucrose": 74,
+   "dextrose": 40,
+   "glucose": 0,
+   "honey": 50,
+   "stabilizer": 0,
+   "serveTemp": -12,
+   "overrunPct": 35
+  },
+  "expected": {
+   "analyze": {
+    "W": 1164.0,
+    "fatPct": 9.772337,
+    "msnfPct": 6.765464,
+    "addedSugarPct": 14.089347,
+    "solidsPct": 29.587629,
+    "pod100": 14.077921,
+    "pac100": 22.138465,
+    "dT": 1.708459,
+    "frozenPct": 85.762841,
+    "scoops80": 18.020642
+   },
+   "fix": {
+    "P": 22,
+    "F": 76,
+    "x": 78.617573,
+    "y": 64.35686
+   }
+  }
+ },
+ {
+  "id": "rand-10",
+  "raw": {
+   "milk": 750,
+   "cream": 0,
+   "smp": 0,
+   "yolk": 40,
+   "sucrose": 135,
+   "dextrose": 0,
+   "glucose": 30,
+   "honey": 0,
+   "stabilizer": 0,
+   "serveTemp": -14,
+   "overrunPct": 50
+  },
+  "expected": {
+   "analyze": {
+    "W": 955.0,
+    "fatPct": 4.089005,
+    "msnfPct": 6.832461,
+    "addedSugarPct": 17.277487,
+    "solidsPct": 28.324607,
+    "pod100": 15.988461,
+    "pac100": 19.580277,
+    "dT": 1.484413,
+    "frozenPct": 89.397049,
+    "scoops80": 16.427752
+   },
+   "fix": {
+    "P": 18,
+    "F": 68,
+    "x": -236.494012,
+    "y": 409.875557
+   }
+  }
+ },
+ {
+  "id": "rand-11",
+  "raw": {
+   "milk": 300,
+   "cream": 0,
+   "smp": 0,
+   "yolk": 0,
+   "sucrose": 87,
+   "dextrose": 80,
+   "glucose": 30,
+   "honey": 50,
+   "stabilizer": 4,
+   "serveTemp": -10,
+   "overrunPct": 0
+  },
+  "expected": {
+   "analyze": {
+    "W": 551.0,
+    "fatPct": 1.905626,
+    "msnfPct": 4.736842,
+    "addedSugarPct": 44.827586,
+    "solidsPct": 48.257713,
+    "pod100": 38.525575,
+    "pac100": 58.312483,
+    "dT": 6.123814,
+    "frozenPct": 38.761864,
+    "scoops80": 6.318807
+   },
+   "fix": {
+    "P": 20,
+    "F": 73,
+    "x": -91.538213,
+    "y": -57.6907
+   }
+  }
+ },
+ {
+  "id": "rand-12",
+  "raw": {
+   "milk": 450,
+   "cream": 350,
+   "smp": 60,
+   "yolk": 0,
+   "sucrose": 114,
+   "dextrose": 20,
+   "glucose": 50,
+   "honey": 90,
+   "stabilizer": 0,
+   "serveTemp": -12,
+   "overrunPct": 25
+  },
+  "expected": {
+   "analyze": {
+    "W": 1134.0,
+    "fatPct": 12.233686,
+    "msnfPct": 10.251323,
+    "addedSugarPct": 24.162257,
+    "solidsPct": 44.215168,
+    "pod100": 22.67522,
+    "pac100": 33.191848,
+    "dT": 3.233116,
+    "frozenPct": 73.057363,
+    "scoops80": 16.255734
+   },
+   "fix": {
+    "P": 22,
+    "F": 76,
+    "x": 11.37378,
+    "y": -34.434476
+   }
+  }
+ },
+ {
+  "id": "rand-13",
+  "raw": {
+   "milk": 500,
+   "cream": 100,
+   "smp": 60,
+   "yolk": 40,
+   "sucrose": 103,
+   "dextrose": 0,
+   "glucose": 0,
+   "honey": 50,
+   "stabilizer": 0,
+   "serveTemp": -12,
+   "overrunPct": 35
+  },
+  "expected": {
+   "analyze": {
+    "W": 853.0,
+    "fatPct": 7.711606,
+    "msnfPct": 12.555686,
+    "addedSugarPct": 17.936694,
+    "solidsPct": 37.995311,
+    "pod100": 19.617716,
+    "pac100": 28.050245,
+    "dT": 2.458205,
+    "frozenPct": 79.514955,
+    "scoops80": 13.205849
+   },
+   "fix": {
+    "P": 18,
+    "F": 68,
+    "x": -126.612043,
+    "y": 173.120683
+   }
+  }
+ },
+ {
+  "id": "rand-14",
+  "raw": {
+   "milk": 450,
+   "cream": 250,
+   "smp": 40,
+   "yolk": 90,
+   "sucrose": 184,
+   "dextrose": 20,
+   "glucose": 0,
+   "honey": 90,
+   "stabilizer": 0,
+   "serveTemp": -14,
+   "overrunPct": 50
+  },
+  "expected": {
+   "analyze": {
+    "W": 1124.0,
+    "fatPct": 11.77669,
+    "msnfPct": 8.136121,
+    "addedSugarPct": 26.156584,
+    "solidsPct": 45.960854,
+    "pod100": 27.132957,
+    "pac100": 36.076117,
+    "dT": 3.627583,
+    "frozenPct": 74.088693,
+    "scoops80": 19.334862
+   },
+   "fix": {
+    "P": 20,
+    "F": 73,
+    "x": -183.096745,
+    "y": 132.605912
+   }
+  }
+ },
+ {
+  "id": "rand-15",
+  "raw": {
+   "milk": 0,
+   "cream": 200,
+   "smp": 0,
+   "yolk": 40,
+   "sucrose": 191,
+   "dextrose": 60,
+   "glucose": 50,
+   "honey": 0,
+   "stabilizer": 0,
+   "serveTemp": -10,
+   "overrunPct": 0
+  },
+  "expected": {
+   "analyze": {
+    "W": 541.0,
+    "fatPct": 15.304991,
+    "msnfPct": 1.996303,
+    "addedSugarPct": 55.637708,
+    "solidsPct": 71.42329,
+    "pod100": 46.939327,
+    "pac100": 58.887402,
+    "dT": 11.197375,
+    "frozenPct": 0.0,
+    "scoops80": 6.204128
+   },
+   "fix": {
+    "P": 22,
+    "F": 76,
+    "x": -121.071435,
+    "y": -84.345918
+   }
+  }
+ },
+ {
+  "id": "rand-16",
+  "raw": {
+   "milk": 450,
+   "cream": 250,
+   "smp": 0,
+   "yolk": 90,
+   "sucrose": 115,
+   "dextrose": 0,
+   "glucose": 50,
+   "honey": 0,
+   "stabilizer": 0,
+   "serveTemp": -12,
+   "overrunPct": 25
+  },
+  "expected": {
+   "analyze": {
+    "W": 955.0,
+    "fatPct": 13.827225,
+    "msnfPct": 5.513089,
+    "addedSugarPct": 17.277487,
+    "solidsPct": 37.267016,
+    "pod100": 14.616867,
+    "pac100": 17.913953,
+    "dT": 1.551678,
+    "frozenPct": 87.069352,
+    "scoops80": 13.689794
+   },
+   "fix": {
+    "P": 18,
+    "F": 68,
+    "x": -115.051022,
+    "y": 243.559151
+   }
+  }
+ },
+ {
+  "id": "rand-17",
+  "raw": {
+   "milk": 300,
+   "cream": 100,
+   "smp": 20,
+   "yolk": 60,
+   "sucrose": 149,
+   "dextrose": 40,
+   "glucose": 30,
+   "honey": 50,
+   "stabilizer": 4,
+   "serveTemp": -12,
+   "overrunPct": 35
+  },
+  "expected": {
+   "analyze": {
+    "W": 753.0,
+    "fatPct": 8.613546,
+    "msnfPct": 6.759628,
+    "addedSugarPct": 35.723772,
+    "solidsPct": 50.63745,
+    "pod100": 32.993158,
+    "pac100": 44.348458,
+    "dT": 4.881879,
+    "frozenPct": 59.317678,
+    "scoops80": 11.657683
+   },
+   "fix": {
+    "P": 20,
+    "F": 73,
+    "x": -129.28556,
+    "y": 11.179935
+   }
+  }
+ }
+]
