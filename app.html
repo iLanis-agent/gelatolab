@@ -1,0 +1,162 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GelatoLab - balance your gelato mix: sweetness, hardness, scoopability</title>
+<meta name="description" content="Your gelato is rock hard or soupy because of sugar chemistry, not luck. GelatoLab computes sweetness (POD), freezing depression and frozen water at serving temperature, then solves the exact sucrose/dextrose swap to fix it.">
+<style>
+:root{--bg:#131019;--card:#1d1926;--line:#332b42;--ink:#f0ecf7;--dim:#b3a8c7;--acc:#8fd3c7;--acc2:#ffd166;--bad:#ff7d7d;--good:#7fd6a0}
+*{box-sizing:border-box}body{margin:0;font:16px/1.5 system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+main{max-width:760px;margin:0 auto;padding:22px 14px 60px}
+h1{font-size:1.7rem;margin:6px 0 2px}h1 .a{color:var(--acc)}
+.tag{color:var(--dim);margin:0 0 14px}
+.note{background:#141f1d;border:1px solid #23413c;color:#bfe6df;padding:9px 12px;border-radius:10px;font-size:.88rem;margin:12px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin:12px 0}
+label{font-size:.82rem;color:var(--dim);display:block;margin:6px 0 3px}
+input,select{background:#141020;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:8px 9px;font:inherit;width:100%}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px 12px}
+button{background:var(--acc);border:0;color:#0a1f1b;font-weight:700;border-radius:9px;padding:11px 16px;font:inherit;cursor:pointer;width:100%}
+button.ghost{background:transparent;border:1px solid var(--line);color:var(--ink);font-weight:400;padding:8px 12px;width:auto}
+.verd{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.verd>div{flex:1;min-width:130px;background:#171222;border:1px solid var(--line);border-radius:10px;padding:9px 11px}
+.verd .lbl{font-size:.76rem;color:var(--dim);text-transform:uppercase;letter-spacing:.04em}
+.verd .val{font-size:1.25rem;font-weight:800}
+.verd .st{font-size:.78rem;font-weight:700}
+.ok{color:var(--good)}.low{color:var(--acc2)}.high{color:var(--bad)}
+.verd .nt{font-size:.76rem;color:var(--dim)}
+table{width:100%;border-collapse:collapse;font-size:.92rem;margin-top:8px}
+td,th{padding:6px 8px;text-align:left;border-bottom:1px solid var(--line)}
+th{color:var(--dim);font-size:.78rem;font-weight:600}
+.fixa{background:#14231e;border:1px solid #2a4a3f;border-radius:10px;padding:10px 12px;margin-top:10px}
+.fixa b{color:var(--acc)}
+.err{background:#3a1414;border:1px solid #5c2424;color:#ffc9c9;padding:10px 12px;border-radius:10px;margin:10px 0;font-size:.92rem;white-space:pre-wrap}
+a{color:var(--acc)}h3{margin:16px 0 4px}
+</style></head><body><main>
+<h1>Gelato<span class="a">Lab</span></h1>
+<p class="tag">Rock-hard gelato is not bad luck, it is sugar chemistry. Different sugars sweeten differently and freeze differently - dextrose depresses freezing 1.7x more than sucrose per gram. Balance the mix with physics, then scoop it.</p>
+<div class="note">Composition and sweetness constants are standard published values (Corvitto-style tables; conventions vary by source). The freezing curve is the ideal-dilute physical model: honest physics, not a fit to your freezer. Verify a new mix with a small batch.</div>
+
+<div class="card">
+<div class="grid">
+<div><label>Water or juice (g)</label><input id="water" type="number" value="0"></div>
+<div><label>Whole milk (g)</label><input id="milk" type="number" value="600"></div>
+<div><label>Cream 35% (g)</label><input id="cream" type="number" value="250"></div>
+<div><label>Skim milk powder (g)</label><input id="smp" type="number" value="0"></div>
+<div><label>Egg yolk (g)</label><input id="yolk" type="number" value="60"></div>
+<div><label>Sucrose - table sugar (g)</label><input id="sucrose" type="number" value="120"></div>
+<div><label>Dextrose (g)</label><input id="dextrose" type="number" value="40"></div>
+<div><label>Glucose syrup DE42 (g)</label><input id="glucose" type="number" value="0"></div>
+<div><label>Honey (g)</label><input id="honey" type="number" value="0"></div>
+<div><label>Stabilizer (g)</label><input id="stabilizer" type="number" value="0"></div>
+<div><label>Serving temp (C)</label><input id="serveTemp" type="number" value="-12"></div>
+<div><label>Overrun % (air)</label><input id="overrunPct" type="number" value="30"></div>
+</div>
+<div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+<button class="ghost" id="exGelato" type="button">classic gelato example</button>
+<button class="ghost" id="exSorbet" type="button">lemon sorbet example</button>
+<button class="ghost" id="exBad" type="button">the rock-hard mistake</button>
+</div>
+</div>
+
+<button id="go" type="button">Balance the mix</button>
+<div id="errors"></div>
+<div id="results"></div>
+
+<div class="card" id="fixCard" style="display:none">
+<h3 style="margin-top:0">Fix it for me</h3>
+<div class="grid">
+<div><label>Target sweetness (POD per 100g)</label><input id="tPOD" type="number" value="20"></div>
+<div><label>Target frozen water % at serving temp</label><input id="tFrozen" type="number" value="73"></div>
+</div>
+<div style="margin-top:8px"><button id="fixBtn" type="button" style="width:auto">Solve the sugar swap</button></div>
+<div id="fixOut"></div>
+</div>
+<p style="margin-top:18px"><a href="index.html">About GelatoLab</a></p>
+</main>
+<script src="engine.js"></script>
+<script>
+'use strict';
+var $ = function(id){ return document.getElementById(id); };
+var esc = GelatoLab.esc;
+var KEYS = ['water','milk','cream','smp','yolk','sucrose','dextrose','glucose','honey','stabilizer'];
+
+function readInput(){
+  var raw = {};
+  KEYS.forEach(function(k){ raw[k] = $(k).value; });
+  raw.serveTemp = $('serveTemp').value;
+  raw.overrunPct = $('overrunPct').value;
+  return raw;
+}
+function setAll(obj){ for (var k in obj) if ($(k)) $(k).value = obj[k]; }
+
+$('exGelato').onclick = function(){ setAll({water:0,milk:600,cream:250,smp:0,yolk:60,sucrose:120,dextrose:40,glucose:0,honey:0,stabilizer:0,serveTemp:-12,overrunPct:30}); run(); };
+$('exSorbet').onclick = function(){ setAll({water:700,milk:0,cream:0,smp:0,yolk:0,sucrose:200,dextrose:50,glucose:40,honey:0,stabilizer:3,serveTemp:-12,overrunPct:20}); run(); };
+$('exBad').onclick = function(){ setAll({water:0,milk:1000,cream:0,smp:0,yolk:0,sucrose:80,dextrose:0,glucose:0,honey:0,stabilizer:0,serveTemp:-12,overrunPct:30}); run(); };
+
+function f1(x){ return (Math.round(x * 10) / 10).toFixed(1); }
+function f0(x){ return String(Math.round(x)); }
+
+function render(r){
+  var html = '<div class="card"><div class="verd">';
+  r.verdicts.forEach(function(v){
+    html += '<div><div class="lbl">' + esc(v.label) + '</div>' +
+      '<div class="val">' + f1(v.value) + '<small style="font-size:.7rem;font-weight:400"> ' + esc(v.unit) + '</small></div>' +
+      '<div class="st ' + v.band + '">' + (v.band === 'ok' ? 'in band' : v.band.toUpperCase()) + '</div>' +
+      '<div class="nt">' + esc(v.note) + ' (' + v.lo + '-' + v.hi + ')</div></div>';
+  });
+  html += '</div>';
+  html += '<table><tr><th>Measure</th><th>Value</th><th>What it means</th></tr>';
+  var rows = [
+    ['Total mix', f0(r.W) + ' g', 'about ' + f1(r.volumeL) + ' L churned at ' + f0(r.overrun) + '% overrun - roughly ' + f0(r.scoops80) + ' scoops of 80 ml'],
+    ['Fat / MSNF', f1(r.fatPct) + '% / ' + f1(r.msnfPct) + '%', 'body and dairy solids'],
+    ['Total solids', f1(r.solidsPct) + '%', 'everything that is not water'],
+    ['Sweetness POD', f1(r.pod100) + ' per 100 g', 'sucrose-equivalent sweetness'],
+    ['Freezing power PAC', f1(r.pac100) + ' per 100 g', 'sucrose-equivalent anti-freeze (traditional table)'],
+    ['Starts freezing at', f1(r.initialFreezeC) + ' C', 'from the cryoscopic constant over your water phase'],
+    ['Frozen water at ' + r.serveTemp + ' C', f1(r.frozenPct) + '%', 'ideal-dilute physics; the scoopability number']
+  ];
+  rows.forEach(function(row){ html += '<tr><td>' + row[0] + '</td><td><b>' + row[1] + '</b></td><td style="color:var(--dim)">' + row[2] + '</td></tr>'; });
+  html += '</table></div>';
+  return html;
+}
+
+var lastRaw = null;
+function run(){
+  $('errors').innerHTML = ''; $('results').innerHTML = ''; $('fixOut').innerHTML = '';
+  try {
+    lastRaw = readInput();
+    var r = GelatoLab.analyze(lastRaw);
+    $('results').innerHTML = render(r);
+    $('fixCard').style.display = '';
+    $('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } catch (e) {
+    $('fixCard').style.display = 'none';
+    $('errors').innerHTML = '<div class="err">' + esc(e.message) + '</div>';
+  }
+}
+$('go').onclick = run;
+
+$('fixBtn').onclick = function(){
+  $('fixOut').innerHTML = '';
+  if (!lastRaw) return;
+  try {
+    var fx = GelatoLab.fix(lastRaw, $('tPOD').value, $('tFrozen').value);
+    var x = fx.sucroseDelta, y = fx.dextroseDelta;
+    var html = '<div class="fixa">';
+    if (Math.abs(x) < 0.5 && Math.abs(y) < 0.5) {
+      html += 'Already on target - no sugar change needed.';
+    } else {
+      var bits = [];
+      if (Math.abs(x) >= 0.5) bits.push((x > 0 ? 'add <b>' + f0(x) + ' g sucrose</b>' : 'remove <b>' + f0(-x) + ' g sucrose</b>'));
+      if (Math.abs(y) >= 0.5) bits.push((y > 0 ? 'add <b>' + f0(y) + ' g dextrose</b>' : 'remove <b>' + f0(-y) + ' g dextrose</b>'));
+      html += 'To hit POD ' + fx.targetPod100 + ' and ' + f0(fx.targetFrozenPct) + '% frozen: ' + bits.join(' and ') + '.';
+      if (!fx.feasible) html += '<br><span style="color:var(--acc2);font-weight:700">Heads up:</span> that math removes more sugar than your mix contains - adjust in the direction shown and re-check, or relax a target.';
+      if (fx.projected) {
+        var p = fx.projected;
+        html += '<br><span style="color:var(--dim)">After the swap: POD ' + f1(p.pod100) + ', frozen ' + f1(p.frozenPct) + '% at ' + p.serveTemp + ' C, mix ' + f0(p.W) + ' g.</span>';
+      }
+    }
+    html += '</div>';
+    $('fixOut').innerHTML = html;
+  } catch (e) {
+    $('fixOut').innerHTML = '<div class="err">' + esc(e.message) + '</div>';
+  }
+};
+</script></body></html>
